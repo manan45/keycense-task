@@ -1,0 +1,33 @@
+{
+  "name": "challenge-keycense",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "jest": {
+    "preset": "ts-jest"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "node ./dist/index.js",
+    "build": "copyfiles -u 1 \"./src/**/*.{css,html,ico,png,svg}\" dist/ && npx tsc && npx copyfiles -u 1 -e \"src/**/*.ts\" \"src/**/*.*\" dist/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "copyfiles": "^2.4.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.12",
+    "morgan": "^1.10.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2"
+  }
+}

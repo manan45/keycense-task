@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  app:
+    container_name: merchandise-store
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_DB_URL="mongodb://root:secret@mongo:27017"
+      - JWT_SECRET=secret
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    depends_on:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+  mongo:
+    container_name: mongo
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
